@@ -31,12 +31,6 @@
         "name": "John",
         "age": 20,
         "city": "Texas"
-      },
-      {
-        "name": "Jane",
-        "age": 25,
-        "city": "Los Angeles",
-        "tel": 809472834
       }
    ]
 }

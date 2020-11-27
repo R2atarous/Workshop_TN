@@ -1,9 +1,6 @@
 
-import com.google.gson.Gson;
 import java.io.*;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
 import org.json.simple.JSONArray; 
 import org.json.simple.JSONObject; 
 import org.json.simple.parser.*;
@@ -20,50 +17,34 @@ import org.json.simple.parser.*;
  */
 public class Workshop {
     
-//    public static void main(String[] args) throws FileNotFoundException  {
-//        try {
-//          File myFile = new File("Person.txt");
-//          Scanner myReader = new Scanner(myFile);
-//          Object obj = new Person();
-//          while (myReader.hasNextLine()) {
-//            String data = myReader.nextLine();
-//            Gson g = new Gson(); 
-//            String str = g.toJson(data);
-//            obj = g.fromJson(str,Object.class);
-//            System.out.println(obj);
-//          }
-//          myReader.close();
-//          if (obj != null) {
-//              System.out.println("test");
-//          }
-////          int sum = sum(1,4);
-////          double avg = avg(sum,4);
-////          System.out.println(sum);
-////          System.out.println(avg);
-//
-//        } catch (FileNotFoundException e) {
-//          System.out.println("Error occurred.");
-//          e.printStackTrace();
-//        }
-//
-//    }
-    
     public static void main(String[] args) {
 
         JSONParser parser = new JSONParser();
 
         try (Reader reader = new FileReader("Person.txt")) {
-
+                    
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
             System.out.println(jsonObject);
 
+            
             // loop array
-            JSONArray msg = (JSONArray) jsonObject.get("person");
-            Iterator<String> iterator = msg.iterator();
-//            while (iterator.hasNext()) {
-//                System.out.println(msg);
-//            }
-            System.out.println(msg);
+            JSONArray personList = (JSONArray) jsonObject.get("person");
+            Iterator<JSONObject> iterator = personList.iterator();  
+            int count = 0;
+            int sum =0;
+            while (iterator.hasNext()) {
+//                System.out.println(iterator.next());
+//                System.out.println(iterator.next().get("name"));
+                if (iterator.next().get("name").toString().contains("John")) {
+                    count++;
+                }    
+//                if (iterator.next().toString().contains("John")) {
+//                  System.out.println("Sum: "+sum);
+//                }    
+            }
+            System.out.println("John Dup: "+count);
+            System.out.println(personList);
+            System.out.println("AVG: "+avg(7,count));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -73,15 +54,9 @@ public class Workshop {
 
     }
     
-    public static int sum(int a, int b)
+    public static double avg(int sum, int count)
     {
-        int sum = a + b;
-        return sum;
-    }
-    
-    public static double avg(int sum, int b)
-    {
-        double avg = sum / b;
+        double avg = sum / count;
         return avg;
     }
     
