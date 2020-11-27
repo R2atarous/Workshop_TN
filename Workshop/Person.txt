@@ -1,0 +1,42 @@
+{
+   "person": [
+      {
+        "name": "John",
+        "age": 31,
+        "city": "New York",
+        "tel": 869232774
+      },
+      {
+        "name": "Jane",
+        "age": 25,
+        "city": "Boston"
+      },
+      {
+        "name": "Ben",
+        "age": 28,
+        "city": "San Diego",
+        "tel": 910476837
+      },
+      {
+        "name": "Alex",
+        "age": 33,
+        "city": "New York"
+      },
+      {
+        "name": "Ben",
+        "age": 25,
+        "city": "Los Angeles"
+      },
+      {
+        "name": "John",
+        "age": 20,
+        "city": "Texas"
+      },
+      {
+        "name": "Jane",
+        "age": 25,
+        "city": "Los Angeles",
+        "tel": 809472834
+      }
+   ]
+}
